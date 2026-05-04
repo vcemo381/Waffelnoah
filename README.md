@@ -129,7 +129,7 @@ Wenn schließt bald:
 Wenn geschlossen:
 
 - Text: Wir haben geschlossen
-- Farbe: Orange
+- Farbe: Rot
 - Anzeige, wann wieder geöffnet wird
 
 Allgemeine Öffnungszeiten sollen unten auf der Webseite angezeigt werden.
@@ -268,7 +268,7 @@ Rabatt muss in Bestellung, Rechnung und CSV Export sichtbar sein.
 
 ## Umsatzsteuer
 
-Preise werden in Cent gespeichert.
+Preise werden in Cent gespeichert. aber für kunden im frondend in € formatiert angezeigt
 
 Jedes Produkt hat ein Feld `vatRate`.
 
@@ -310,6 +310,8 @@ Unterstützt werden sollen, soweit über Stripe verfügbar:
 - Apple Pay
 - Google Pay
 - Klarna
+- Online Banking (Karten)
+- oder gutschein
 
 Wichtige Regeln:
 
