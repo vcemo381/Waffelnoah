@@ -18,6 +18,13 @@ describe("calculatePrice", () => {
     expect(result.appliedRule).toBe("category");
   });
 
+  it("ohne Produkt- oder Kategorieregel ist alles kostenpflichtig", () => {
+    const result = calculatePrice({ product: { id: "p0", categoryId: "c0", slug: "x", name: "x", description: "", priceCents: 500, vatRate: 7, imageUrl: "", active: true, isNew: false, isRecommended: false, isDailySpecial: false }, optionsCatalog: [...options], selectedOptions: [{ optionId: "t1", quantity: 1 }] });
+    expect(result.appliedRule).toBe("none");
+    expect(result.freeOptions).toHaveLength(0);
+    expect(result.totalCents).toBe(600);
+  });
+
   it("Kategorie mit Gratisoptionen + Waffel mit 1 gratis Sauce und 1 gratis Topping", () => {
     const result = calculatePrice({ product: { id: "p1", categoryId: "c1", slug: "x", name: "x", description: "", priceCents: 500, vatRate: 7, imageUrl: "", active: true, isNew: false, isRecommended: false, isDailySpecial: false }, category, optionsCatalog: [...options], selectedOptions: [{ optionId: "t1", quantity: 1 }, { optionId: "s1", quantity: 1 }] });
     expect(result.freeOptions).toHaveLength(2);
@@ -56,5 +63,10 @@ describe("calculatePrice", () => {
   it("priority Strategie mit fallback cheapest", () => {
     const result = calculatePrice({ product: { id: "p1", categoryId: "c1", slug: "x", name: "x", description: "", priceCents: 500, vatRate: 7, imageUrl: "", active: true, isNew: false, isRecommended: false, isDailySpecial: false, allowFreeOptions: true, freeToppingsCount: 1, freeSaucesCount: 0, freeExtrasCount: 0, freeStrategy: "priority" }, optionsCatalog: [...options], selectedOptions: [{ optionId: "t1", quantity: 1 }, { optionId: "t2", quantity: 1 }] });
     expect(result.freeOptions[0].id).toBe("t2");
+  });
+
+  it("priority fallback cheapest bei fehlender freePriority", () => {
+    const result = calculatePrice({ product: { id: "p1", categoryId: "c1", slug: "x", name: "x", description: "", priceCents: 500, vatRate: 7, imageUrl: "", active: true, isNew: false, isRecommended: false, isDailySpecial: false, allowFreeOptions: true, freeToppingsCount: 1, freeSaucesCount: 1, freeExtrasCount: 0, freeStrategy: "priority" }, optionsCatalog: [...options], selectedOptions: [{ optionId: "s1", quantity: 1 }, { optionId: "s2", quantity: 1 }] });
+    expect(result.freeOptions[0].id).toBe("s1");
   });
 });

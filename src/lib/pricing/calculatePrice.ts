@@ -20,8 +20,8 @@ export function calculatePrice(input: {
 
   const expanded = input.selectedOptions.flatMap((selection) => {
     const opt = input.optionsCatalog.find((o) => o.id === selection.optionId);
-    if (!opt) return [];
-    return Array.from({ length: selection.quantity }, () => opt);
+    if (!opt || selection.quantity <= 0) return [];
+    return Array.from({ length: Math.floor(selection.quantity) }, () => opt);
   });
 
   const freeOptions: Option[] = [];
@@ -79,6 +79,7 @@ function sortByStrategy(a: Option, b: Option, strategy: FreeStrategy) {
     if (typeof aP === "number" && typeof bP === "number" && aP !== bP) return aP - bP;
     if (typeof aP === "number" && typeof bP !== "number") return -1;
     if (typeof aP !== "number" && typeof bP === "number") return 1;
+    return a.priceCents - b.priceCents;
   }
   return a.priceCents - b.priceCents;
 }
