@@ -29,6 +29,51 @@
       "freeStrategy": "cheapest",
       "active": true,
       "sortOrder": 2
+    },
+    {
+      "id": "cat_shakes",
+      "slug": "shakes",
+      "name": "Shakes",
+      "description": "Cremige Milchshakes mit Topping-Optionen.",
+      "imageUrl": "/images/drinks/shakes.webp",
+      "vatRateDefault": 19,
+      "allowFreeOptions": false,
+      "freeToppingsCount": 0,
+      "freeSaucesCount": 0,
+      "freeExtrasCount": 0,
+      "freeStrategy": "cheapest",
+      "active": true,
+      "sortOrder": 3
+    },
+    {
+      "id": "cat_getraenke",
+      "slug": "getraenke",
+      "name": "Getränke",
+      "description": "Kalte und warme Getränke.",
+      "imageUrl": "/images/drinks/getraenke.webp",
+      "vatRateDefault": 19,
+      "allowFreeOptions": false,
+      "freeToppingsCount": 0,
+      "freeSaucesCount": 0,
+      "freeExtrasCount": 0,
+      "freeStrategy": "cheapest",
+      "active": true,
+      "sortOrder": 4
+    },
+    {
+      "id": "cat_extras",
+      "slug": "extras",
+      "name": "Extras",
+      "description": "Zusätzliche Produkte für den perfekten Genuss.",
+      "imageUrl": "/images/food/extras.webp",
+      "vatRateDefault": 7,
+      "allowFreeOptions": false,
+      "freeToppingsCount": 0,
+      "freeSaucesCount": 0,
+      "freeExtrasCount": 0,
+      "freeStrategy": "cheapest",
+      "active": true,
+      "sortOrder": 5
     }
   ]
 }
