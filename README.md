@@ -539,3 +539,43 @@ Secrets dürfen niemals in GitHub committed werden.
 13. Terminal
 14. CSV Export
 15. Sicherheit prüfen
+
+## Gratisoptionen pro Produkt oder Kategorie
+
+Gratisoptionen gelten nicht global, sondern pro Produkt oder Kategorie.
+
+Option Ebene (Toppings, Saucen, Extras):
+
+- `freeEligible: boolean`
+- `priceCents: number`
+- `group: "toppings" | "sauces" | "extras"`
+- `active: boolean`
+- `freePriority?: number`
+
+`freeEligible = true` bedeutet nur, dass eine Option grundsätzlich kostenlos werden darf.
+`freeEligible = false` bedeutet, dass die Option immer berechnet wird.
+
+Produkt- und Kategorie-Regeln:
+
+- `allowFreeOptions: boolean`
+- `freeToppingsCount: number`
+- `freeSaucesCount: number`
+- `freeExtrasCount: number`
+- `freeStrategy: "cheapest" | "priority"` (Standard: `cheapest`)
+
+Regelauflösung:
+
+1. Produktregel überschreibt Kategorieregel.
+2. Wenn Produkt keine Regel hat, gilt Kategorieregel.
+3. Wenn keine Regel existiert, ist alles kostenpflichtig.
+4. Wenn `allowFreeOptions = false`, wird keine Option kostenlos.
+5. Nur `freeEligible = true` kann kostenlos werden.
+6. `freeEligible = false` wird immer berechnet.
+7. Doppelte Menge zählt als mehrere Einheiten.
+
+Strategie `cheapest`:
+- Die günstigsten gratisfähigen Optionen werden kostenlos (Sortierung `priceCents` aufsteigend).
+
+Strategie `priority`:
+- Kleinste `freePriority` wird zuerst kostenlos.
+- Fehlt `freePriority`, gilt Fallback auf `cheapest`.
