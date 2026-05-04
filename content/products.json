@@ -12,90 +12,39 @@
       "active": true,
       "isNew": false,
       "isRecommended": true,
-      "isDailySpecial": false,
-      "freeOptionAllowanceByGroup": {
-        "toppings": 1,
-        "sauces": 1
-      }
+      "isDailySpecial": false
     },
     {
-      "id": "prd_schoko_traum",
+      "id": "prd_premium",
       "categoryId": "cat_waffeln",
-      "slug": "waffel-schoko-traum",
-      "name": "Waffel Schoko Traum",
-      "description": "Mit Schokosauce und Schokostreuseln.",
-      "priceCents": 690,
+      "slug": "premium-waffel",
+      "name": "Premium Waffel",
+      "description": "Waffel mit mehr kostenlosen Toppings.",
+      "priceCents": 790,
       "vatRate": 7,
-      "imageUrl": "/images/food/waffel-schoko-traum.webp",
+      "imageUrl": "/images/food/waffel-premium.webp",
       "active": true,
       "isNew": true,
       "isRecommended": true,
-      "isDailySpecial": true,
-      "freeOptionAllowanceByGroup": {
-        "toppings": 1,
-        "sauces": 1
-      }
+      "isDailySpecial": false,
+      "allowFreeOptions": true,
+      "freeToppingsCount": 2,
+      "freeSaucesCount": 1,
+      "freeExtrasCount": 0,
+      "freeStrategy": "cheapest"
     },
     {
       "id": "prd_crepe_zimt",
       "categoryId": "cat_crepes",
       "slug": "crepe-zimt-zucker",
       "name": "Crêpe Zimt & Zucker",
-      "description": "Klassischer Crêpe mit Zimt-Zucker Mischung.",
+      "description": "Klassischer Crêpe ohne kostenlose Optionen.",
       "priceCents": 450,
       "vatRate": 7,
       "imageUrl": "/images/food/crepe-zimt.webp",
       "active": true,
       "isNew": false,
       "isRecommended": false,
-      "isDailySpecial": false,
-      "freeOptionAllowanceByGroup": {
-        "sauces": 1
-      }
-    },
-    {
-      "id": "prd_erdbeer_shake",
-      "categoryId": "cat_shakes",
-      "slug": "erdbeer-shake",
-      "name": "Erdbeer Shake",
-      "description": "Fruchtiger Shake mit echten Erdbeeren.",
-      "priceCents": 560,
-      "vatRate": 19,
-      "imageUrl": "/images/drinks/erdbeer-shake.webp",
-      "active": true,
-      "isNew": true,
-      "isRecommended": false,
-      "isDailySpecial": false,
-      "freeOptionAllowanceByGroup": {
-        "extras": 0
-      }
-    },
-    {
-      "id": "prd_latte",
-      "categoryId": "cat_getraenke",
-      "slug": "latte-macchiato",
-      "name": "Latte Macchiato",
-      "description": "Frisch gebrühter Espresso mit aufgeschäumter Milch.",
-      "priceCents": 390,
-      "vatRate": 19,
-      "imageUrl": "/images/drinks/latte.webp",
-      "active": true,
-      "isNew": false,
-      "isRecommended": false,
-      "isDailySpecial": false
-    },
-    {
-      "id": "prd_cookie",
-      "categoryId": "cat_extras",
-      "slug": "big-cookie",
-      "name": "Big Cookie",
-      "description": "Warmer Schoko-Cookie als Add-on.",
-      "priceCents": 250,
-      "vatRate": 7,
-      "imageUrl": "/images/food/cookie.webp",
-      "active": true,
-      "isNew": false,
-      "isRecommended": true,
       "isDailySpecial": false
     }
   ]

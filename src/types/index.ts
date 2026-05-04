@@ -4,6 +4,7 @@ export type UnixTimestamp = string;
 export type VatRate = 7 | 19;
 export type OptionGroupType = "toppings" | "sauces" | "extras";
 export type RecommendedLevel = 0 | 1 | 2 | 3;
+export type FreeStrategy = "cheapest" | "priority";
 
 export interface ProductImage {
   id: ID;
@@ -21,7 +22,11 @@ export interface Category {
   description: string;
   imageUrl?: string;
   vatRateDefault: VatRate;
-  freeOptionAllowanceByGroup?: Partial<Record<OptionGroupType, number>>;
+  allowFreeOptions?: boolean;
+  freeToppingsCount?: number;
+  freeSaucesCount?: number;
+  freeExtrasCount?: number;
+  freeStrategy?: FreeStrategy;
   active: boolean;
   sortOrder: number;
 }
@@ -39,7 +44,11 @@ export interface Product {
   isNew: boolean;
   isRecommended: boolean;
   isDailySpecial: boolean;
-  freeOptionAllowanceByGroup?: Partial<Record<OptionGroupType, number>>;
+  allowFreeOptions?: boolean;
+  freeToppingsCount?: number;
+  freeSaucesCount?: number;
+  freeExtrasCount?: number;
+  freeStrategy?: FreeStrategy;
 }
 
 export interface OptionGroup {
@@ -60,7 +69,9 @@ export interface Option {
   name: string;
   description?: string;
   priceCents: number;
+  group: OptionGroupType;
   freeEligible: boolean;
+  freePriority?: number;
   recommendedLevel: RecommendedLevel;
   active: boolean;
   sortOrder: number;
