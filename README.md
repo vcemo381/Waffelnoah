@@ -253,6 +253,11 @@ Beispiel:
 Regeln:
 
 - Gratisanzahl pro Produkt oder Kategorie
+- Produktregel überschreibt Kategorieregel
+- `freeEligible` entscheidet, ob eine Option grundsätzlich kostenlos sein darf
+- `freeEligible: false` wird immer berechnet
+- Standardstrategie für Gratisoptionen ist `cheapest`
+- optionale Priorität (`priority`) darf die Standardstrategie überschreiben
 - doppelte Menge zählt als zwei Einheiten
 - nicht gratisfähige Optionen werden immer berechnet
 - kostenlose und berechnete Optionen werden im Warenkorb angezeigt

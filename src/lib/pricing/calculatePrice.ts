@@ -15,7 +15,7 @@ export interface PriceOption {
   name?: string;
   unitPriceCents: number;
   freeEligible: boolean;
-  freePriority: number;
+  freePriority?: number;
   vatRate?: VatRate;
 }
 
@@ -156,20 +156,38 @@ export function calculatePrice(input: PricingInput): CalculatePriceResult {
       }
     }
 
-    const sortedCandidates = expandedOptions
-      .map((o, idx) => ({ ...o, idx }))
-      .sort((a, b) =>
-        a.group === b.group ? a.freePriority - b.freePriority || a.idx - b.idx : 0,
-      );
+    const indexedCandidates = expandedOptions.map((o, idx) => ({ ...o, idx }));
+    const groupedCandidates = new Map<OptionGroup, typeof indexedCandidates>();
+
+    for (const candidate of indexedCandidates) {
+      const existing = groupedCandidates.get(candidate.group) ?? [];
+      existing.push(candidate);
+      groupedCandidates.set(candidate.group, existing);
+    }
 
     const freeIdxSet = new Set<number>();
-    for (const candidate of sortedCandidates) {
-      if (!candidate.freeEligible) continue;
-      const slots = groupSlots.get(candidate.group) ?? 0;
+    for (const [group, candidates] of groupedCandidates.entries()) {
+      const slots = groupSlots.get(group) ?? 0;
       if (slots <= 0) continue;
 
-      freeIdxSet.add(candidate.idx);
-      groupSlots.set(candidate.group, slots - 1);
+      const eligible = candidates.filter((candidate) => candidate.freeEligible);
+      const hasExplicitPriority = eligible.some(
+        (candidate) => candidate.freePriority !== undefined,
+      );
+
+      const sorted = [...eligible].sort((a, b) => {
+        if (hasExplicitPriority) {
+          const priorityA = a.freePriority ?? Number.MAX_SAFE_INTEGER;
+          const priorityB = b.freePriority ?? Number.MAX_SAFE_INTEGER;
+          return priorityA - priorityB || a.idx - b.idx;
+        }
+
+        return a.unitPriceCents - b.unitPriceCents || a.idx - b.idx;
+      });
+
+      for (const candidate of sorted.slice(0, slots)) {
+        freeIdxSet.add(candidate.idx);
+      }
     }
 
     for (const [idx, option] of expandedOptions.entries()) {

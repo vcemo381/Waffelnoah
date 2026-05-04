@@ -30,6 +30,11 @@ Keine App.
 - Geldwerte immer in Cent speichern
 - Keine Float Berechnung für Geld
 - Secrets niemals committen
+- Gratisoptionen gelten pro Produkt oder Kategorie
+- Produktregel überschreibt Kategorieregel
+- `freeEligible` entscheidet, ob eine Option kostenlos sein darf
+- `freeEligible: false` wird immer berechnet
+- Standardstrategie ist `cheapest`, optionale `priority` darf überschreiben
 
 ## Tech Stack
 - Next.js

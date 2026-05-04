@@ -104,7 +104,37 @@ describe("calculatePrice", () => {
     expect(result.grossCents).toBe(620);
   });
 
-  it("freePriority entscheidet kostenlose Sauce", () => {
+  it("cheapest ist Standardstrategie ohne priority", () => {
+    const optionsWithoutPriority: Record<string, PriceOption> = {
+      sauce_choco: { ...OPTIONS.sauce_choco, freePriority: undefined },
+      sauce_strawberry: { ...OPTIONS.sauce_strawberry, freePriority: undefined },
+      sauce_pistachio: { ...OPTIONS.sauce_pistachio, freePriority: undefined },
+      topping_banana: { ...OPTIONS.topping_banana, freePriority: undefined },
+      topping_oreo: { ...OPTIONS.topping_oreo, freePriority: undefined },
+      topping_premium: { ...OPTIONS.topping_premium, freePriority: undefined },
+    };
+
+    const result = calculatePrice({
+      ...baseInput(),
+      optionsById: optionsWithoutPriority,
+      items: [
+        {
+          productId: "waffle",
+          quantity: 1,
+          options: [
+            { optionId: "sauce_strawberry", quantity: 1 },
+            { optionId: "sauce_choco", quantity: 1 },
+          ],
+        },
+      ],
+      freeByCategory: { sauces: 1 },
+    });
+
+    expect(result.freeOptions[0]?.optionId).toBe("sauce_choco");
+    expect(result.chargedOptions[0]?.optionId).toBe("sauce_strawberry");
+  });
+
+  it("freePriority überschreibt cheapest", () => {
     const result = calculatePrice({
       ...baseInput(),
       items: [
@@ -122,6 +152,23 @@ describe("calculatePrice", () => {
 
     expect(result.freeOptions[0]?.optionId).toBe("sauce_choco");
     expect(result.chargedOptions[0]?.optionId).toBe("sauce_strawberry");
+  });
+
+  it("Produktregel überschreibt Kategorieregel", () => {
+    const result = calculatePrice({
+      ...baseInput(),
+      items: [
+        {
+          productId: "waffle",
+          quantity: 1,
+          options: [{ optionId: "sauce_choco", quantity: 1 }],
+        },
+      ],
+      freeByCategory: { sauces: 0 },
+      freeByProductId: { waffle: { sauces: 1 } },
+    });
+    expect(result.freeOptions).toHaveLength(1);
+    expect(result.grossCents).toBe(500);
   });
 
   it("nicht gratisfähige Sauce wird immer berechnet", () => {
