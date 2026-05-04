@@ -1,0 +1,2 @@
+-- Initiale Migration (Platzhalter)
+-- Tabellen werden in späteren Schritten schrittweise ergänzt.

@@ -1,26 +1,22 @@
 # AGENTS.md
 
 ## Aufgabe
-
 Codex soll dieses Repository schrittweise entwickeln.
 
 Nicht alles auf einmal bauen.
 
 Vor jeder Änderung:
-
 1. README.md lesen
 2. AGENTS.md lesen
 3. bestehende Dateien prüfen
 4. nur die angeforderte Aufgabe bearbeiten
 
 ## Projekt
-
 Klassische Webseite für einen Waffelimbiss mit Online Vorbestellung zur Abholung.
 
 Keine App.
 
 ## Regeln
-
 - Preise niemals aus dem Frontend übernehmen
 - Frontend sendet nur IDs, Mengen, Gutschein Code, Notizen und Abholzeit
 - Server berechnet Preise, Toppings, Gratisoptionen, Gutscheine, Netto, Steuer und Brutto
@@ -36,7 +32,6 @@ Keine App.
 - Secrets niemals committen
 
 ## Tech Stack
-
 - Next.js
 - TypeScript
 - Supabase
@@ -46,7 +41,6 @@ Keine App.
 - CSV Export
 
 ## Design
-
 - Pink und Weiß
 - Modern
 - Dezent
@@ -55,11 +49,9 @@ Keine App.
 - Smooth Animationen
 
 ## Test Regeln
-
 Preislogik braucht Tests.
 
 Tests müssen Fälle abdecken:
-
 - Gratis Topping
 - Gratis Sauce
 - weitere kostenpflichtige Optionen
@@ -72,7 +64,6 @@ Tests müssen Fälle abdecken:
 - gemischter Warenkorb
 
 ## Arbeitsweise
-
 Wenn eine Datei schon existiert, nicht blind überschreiben.
 
 Erst lesen, dann gezielt ändern.
