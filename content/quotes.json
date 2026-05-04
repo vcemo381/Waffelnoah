@@ -1,3 +1,28 @@
 {
-  "quotes": []
+  "quotes": [
+    {
+      "id": "q_01",
+      "text": "Erfolg beginnt mit einem mutigen ersten Schritt.",
+      "author": "Waffelnoah",
+      "active": true
+    },
+    {
+      "id": "q_02",
+      "text": "Qualität ist kein Zufall, sondern eine Entscheidung.",
+      "author": "Unbekannt",
+      "active": true
+    },
+    {
+      "id": "q_03",
+      "text": "Kleine Pausen mit etwas Süßem machen große Tage besser.",
+      "author": "Team Waffelnoah",
+      "active": true
+    },
+    {
+      "id": "q_04",
+      "text": "Wer mit Leidenschaft backt, serviert Freude.",
+      "author": "Waffelnoah",
+      "active": true
+    }
+  ]
 }

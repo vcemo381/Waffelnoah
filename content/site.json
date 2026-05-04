@@ -1,4 +1,29 @@
 {
   "siteName": "Waffelnoah",
-  "openingHours": {}
+  "tagline": "Frische Waffeln. Süße Momente.",
+  "currency": "EUR",
+  "pickupLeadTimeMinutes": [30, 60],
+  "openingHours": [
+    { "day": "monday", "open": "12:00", "close": "20:00", "isClosed": false },
+    { "day": "tuesday", "open": "12:00", "close": "20:00", "isClosed": false },
+    { "day": "wednesday", "open": "12:00", "close": "20:00", "isClosed": false },
+    { "day": "thursday", "open": "12:00", "close": "20:00", "isClosed": false },
+    { "day": "friday", "open": "12:00", "close": "21:00", "isClosed": false },
+    { "day": "saturday", "open": "13:00", "close": "21:00", "isClosed": false },
+    { "day": "sunday", "open": "13:00", "close": "21:00", "isClosed": false }
+  ],
+  "address": {
+    "street": "Waffelstraße 12",
+    "postalCode": "50667",
+    "city": "Köln",
+    "country": "Deutschland"
+  },
+  "contact": {
+    "phone": "+49 221 12345678",
+    "email": "hallo@waffelnoah.de"
+  },
+  "socialLinks": {
+    "instagram": "https://instagram.com/waffelnoah",
+    "tiktok": "https://tiktok.com/@waffelnoah"
+  }
 }
