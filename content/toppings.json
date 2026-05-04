@@ -1,4 +1,130 @@
 {
-  "optionGroups": [],
-  "options": []
+  "optionGroups": [
+    {
+      "id": "grp_toppings",
+      "key": "toppings",
+      "name": "Toppings",
+      "description": "Früchte, Crunch und Süßes.",
+      "minSelect": 0,
+      "maxSelect": 6,
+      "freeDefaultCount": 1,
+      "sortOrder": 1,
+      "active": true
+    },
+    {
+      "id": "grp_sauces",
+      "key": "sauces",
+      "name": "Saucen",
+      "description": "Warme und kalte Saucen.",
+      "minSelect": 0,
+      "maxSelect": 3,
+      "freeDefaultCount": 1,
+      "sortOrder": 2,
+      "active": true
+    },
+    {
+      "id": "grp_extras",
+      "key": "extras",
+      "name": "Extras",
+      "description": "Zusätzliche Add-ons.",
+      "minSelect": 0,
+      "maxSelect": 4,
+      "freeDefaultCount": 0,
+      "sortOrder": 3,
+      "active": true
+    }
+  ],
+  "options": [
+    {
+      "id": "opt_erdbeeren",
+      "groupId": "grp_toppings",
+      "name": "Frische Erdbeeren",
+      "description": "Saisonale Erdbeeren.",
+      "priceCents": 120,
+      "freeEligible": true,
+      "recommendedLevel": 3,
+      "active": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "opt_bananen",
+      "groupId": "grp_toppings",
+      "name": "Bananenscheiben",
+      "priceCents": 100,
+      "freeEligible": true,
+      "recommendedLevel": 2,
+      "active": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "opt_oreo",
+      "groupId": "grp_toppings",
+      "name": "Oreo Crunch",
+      "priceCents": 130,
+      "freeEligible": true,
+      "recommendedLevel": 2,
+      "active": true,
+      "sortOrder": 3
+    },
+    {
+      "id": "opt_goldstaub",
+      "groupId": "grp_toppings",
+      "name": "Goldstaub Dekor",
+      "priceCents": 250,
+      "freeEligible": false,
+      "recommendedLevel": 1,
+      "active": true,
+      "sortOrder": 4
+    },
+    {
+      "id": "opt_schoko",
+      "groupId": "grp_sauces",
+      "name": "Schokosauce",
+      "priceCents": 90,
+      "freeEligible": true,
+      "recommendedLevel": 3,
+      "active": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "opt_karamell",
+      "groupId": "grp_sauces",
+      "name": "Karamellsauce",
+      "priceCents": 100,
+      "freeEligible": true,
+      "recommendedLevel": 2,
+      "active": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "opt_pistazie",
+      "groupId": "grp_sauces",
+      "name": "Pistaziencreme",
+      "priceCents": 180,
+      "freeEligible": false,
+      "recommendedLevel": 2,
+      "active": true,
+      "sortOrder": 3
+    },
+    {
+      "id": "opt_sahne",
+      "groupId": "grp_extras",
+      "name": "Portion Sahne",
+      "priceCents": 80,
+      "freeEligible": false,
+      "recommendedLevel": 2,
+      "active": true,
+      "sortOrder": 1
+    },
+    {
+      "id": "opt_eis_vanille",
+      "groupId": "grp_extras",
+      "name": "Kugel Vanilleeis",
+      "priceCents": 150,
+      "freeEligible": false,
+      "recommendedLevel": 3,
+      "active": true,
+      "sortOrder": 2
+    }
+  ]
 }

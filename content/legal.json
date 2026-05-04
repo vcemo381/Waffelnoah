@@ -1,5 +1,5 @@
 {
-  "impressum": "",
-  "datenschutz": "",
-  "agb": ""
+  "impressum": "Waffelnoah GmbH\nWaffelstraße 12\n50667 Köln\nDeutschland\n\nVertreten durch: Noah Mustermann\nKontakt: hallo@waffelnoah.de | +49 221 12345678\nUSt-IdNr.: DE123456789",
+  "datenschutz": "Wir verarbeiten personenbezogene Daten ausschließlich zur Bestellabwicklung, Zahlungsabwicklung und gesetzlichen Dokumentation. Zahlungsdaten werden über Stripe verarbeitet. Weitere Informationen erhalten Kundinnen und Kunden in der vollständigen Datenschutzerklärung.",
+  "agb": "Bestellungen sind nur zur Abholung möglich. Ein Kaufvertrag kommt erst mit erfolgreicher Online-Zahlung zustande. Abholzeiten müssen innerhalb der Öffnungszeiten liegen. Gutscheine sind nur im angegebenen Zeitraum und gemäß Bedingungen gültig."
 }
