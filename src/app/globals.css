@@ -1,0 +1,7 @@
+:root {
+  --color-pink: #ff4fa3;
+  --color-white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; }
