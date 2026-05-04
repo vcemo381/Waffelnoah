@@ -71,3 +71,42 @@ Erst lesen, dann gezielt ändern.
 Nach Änderungen TypeScript prüfen.
 
 Keine großen Refactorings ohne Auftrag.
+
+## Feste Regel: Gratisoptionen pro Produkt oder Kategorie
+
+Gratisoptionen sind nie global.
+
+### Option Ebene
+Jede Option hat:
+- `freeEligible: boolean`
+- `priceCents: number`
+- `group: "toppings" | "sauces" | "extras"`
+- `active: boolean`
+- `freePriority?: number`
+
+`freeEligible = true` heißt nur: darf kostenlos werden.
+`freeEligible = false` heißt: immer berechnen.
+
+### Produkt- oder Kategorie Ebene
+Jedes Produkt und jede Kategorie kann Regeln haben:
+- `allowFreeOptions: boolean`
+- `freeToppingsCount: number`
+- `freeSaucesCount: number`
+- `freeExtrasCount: number`
+- `freeStrategy: "cheapest" | "priority"`
+
+Standard ist `freeStrategy = "cheapest"`.
+
+### Verbindliche Auswertung
+1. Produktregel überschreibt Kategorieregel.
+2. Wenn Produkt keine Regel hat, nutze Kategorieregel.
+3. Wenn keine Regel existiert, ist alles kostenpflichtig.
+4. `allowFreeOptions = false` => keine Gratisoptionen.
+5. Nur `freeEligible = true` kann kostenlos werden.
+6. `freeEligible = false` wird immer berechnet.
+7. Doppelte Menge zählt als mehrere Einheiten.
+
+### Strategien
+- `cheapest`: günstigste gratisfähige Optionen zuerst kostenlos.
+- `priority`: niedrigste `freePriority` zuerst kostenlos.
+- Fehlt `freePriority`, Fallback auf `cheapest`.

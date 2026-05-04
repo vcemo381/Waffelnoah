@@ -7,10 +7,11 @@
       "description": "Frisch gebackene Belgische Waffeln mit knusprigem Rand.",
       "imageUrl": "/images/food/waffeln.webp",
       "vatRateDefault": 7,
-      "freeOptionAllowanceByGroup": {
-        "toppings": 1,
-        "sauces": 1
-      },
+      "allowFreeOptions": true,
+      "freeToppingsCount": 1,
+      "freeSaucesCount": 1,
+      "freeExtrasCount": 0,
+      "freeStrategy": "cheapest",
       "active": true,
       "sortOrder": 1
     },
@@ -21,45 +22,13 @@
       "description": "Dünne Crêpes, frisch auf der Platte zubereitet.",
       "imageUrl": "/images/food/crepes.webp",
       "vatRateDefault": 7,
-      "freeOptionAllowanceByGroup": {
-        "toppings": 1,
-        "sauces": 1
-      },
+      "allowFreeOptions": false,
+      "freeToppingsCount": 0,
+      "freeSaucesCount": 0,
+      "freeExtrasCount": 0,
+      "freeStrategy": "cheapest",
       "active": true,
       "sortOrder": 2
-    },
-    {
-      "id": "cat_shakes",
-      "slug": "shakes",
-      "name": "Shakes",
-      "description": "Cremige Milchshakes mit Topping-Optionen.",
-      "imageUrl": "/images/drinks/shakes.webp",
-      "vatRateDefault": 19,
-      "freeOptionAllowanceByGroup": {
-        "extras": 0
-      },
-      "active": true,
-      "sortOrder": 3
-    },
-    {
-      "id": "cat_getraenke",
-      "slug": "getraenke",
-      "name": "Getränke",
-      "description": "Kalte und warme Getränke.",
-      "imageUrl": "/images/drinks/getraenke.webp",
-      "vatRateDefault": 19,
-      "active": true,
-      "sortOrder": 4
-    },
-    {
-      "id": "cat_extras",
-      "slug": "extras",
-      "name": "Extras",
-      "description": "Zusätzliche Produkte für den perfekten Genuss.",
-      "imageUrl": "/images/food/extras.webp",
-      "vatRateDefault": 7,
-      "active": true,
-      "sortOrder": 5
     }
   ]
 }
